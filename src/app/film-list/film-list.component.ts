@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import {FilmService} from '../film.service'
+import { Component, OnInit, Input, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { FilmService } from '../film.service'
+import { FilmSearchComponent } from "app/film-search/film-search.component";
 
 @Component({
   selector: 'film-list',
@@ -10,6 +11,7 @@ export class FilmListComponent implements OnInit {
 
   filmList : Object[] = [];
   filmName : string; 
+  isLoading: boolean = false;
   
   constructor(private filmCardService: FilmService) { }
   view: string;
@@ -32,13 +34,24 @@ export class FilmListComponent implements OnInit {
     })
   }
 
+@ViewChild (FilmSearchComponent)
+private inputEl : FilmSearchComponent;
+  goTop () {
+    this.inputEl.setFocus();
+  }
+
+showLoading(status) {
+  this.isLoading = status;
+}
  private getNextPage() {
+  this.showLoading(true);
      this.filmCardService.getFilmsPage().subscribe(data => {
       this.filmList = this.filmList.concat(data);
+      this.showLoading(false);
     })
   }
 
-  onSelected(selectedValue) {
+    onSelected(selectedValue) {
     this.selection = selectedValue;
   }
 }

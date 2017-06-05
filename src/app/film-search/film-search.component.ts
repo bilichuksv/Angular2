@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'film-search',
@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./film-search.component.css']
 })
 export class FilmSearchComponent implements OnInit {
+  foc: boolean = false;
 
  @Output() filmsChange = new EventEmitter<string>();
     onFilmsChange(filmName){
@@ -14,6 +15,14 @@ export class FilmSearchComponent implements OnInit {
     }
 
   constructor() { }
+
+@ViewChild("filmName")
+focusInput : ElementRef;
+
+setFocus() {
+this.focusInput.nativeElement.focus();
+this.focusInput.nativeElement.blur();
+}
 
   ngOnInit() {
   }
