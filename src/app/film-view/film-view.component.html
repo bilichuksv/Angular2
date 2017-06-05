@@ -1,0 +1,5 @@
+<md-select placeholder="Вид" [(ngModel)]="selectedValue" name="view" (change)="change($event)">
+    <md-option *ngFor="let view of views" [value]="view.value">
+      {{view.viewValue}}
+    </md-option>
+  </md-select>

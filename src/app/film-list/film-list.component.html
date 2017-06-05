@@ -1,0 +1,14 @@
+<film-search (filmsChange)="filmsChange($event)"></film-search>
+<film-view (onSelected)="onSelected($event)"></film-view>
+
+<md-grid-list  cols="2" rowHeight="1000px">
+	
+  <md-grid-tile *ngFor="let film of filmList">
+		<film-card [filmId]="film.imdbID" [view]="selection"></film-card>
+	</md-grid-tile>
+	
+</md-grid-list>
+
+<div class="mybtn">
+	<a md-fab (click)="getNextPage()" routerLink="."><md-icon>forward</md-icon></a>
+</div>

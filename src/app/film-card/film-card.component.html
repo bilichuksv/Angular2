@@ -1,0 +1,27 @@
+
+		<md-card [ngClass]="view">
+			<div class="image">
+			<img md-card-image src="{{filmItem.Poster}}">
+			</div>
+			<div class="wrap">
+			<md-card-content class="content">
+				<md-card-title>{{filmItem.Title}}</md-card-title>
+				<p>Released: {{filmItem.Released}}</p>
+				<p>Country: {{filmItem.Country}}</p>
+				<p>Language: {{filmItem.Language}}</p>
+				<p>{{filmItem.Plot}}</p>
+			</md-card-content>
+			<md-card-actions>
+				<button md-button>Подробнее</button>
+			</md-card-actions>
+			</div>
+		</md-card>
+
+
+
+
+
+
+
+
+
