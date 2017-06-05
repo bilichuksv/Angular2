@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from '@angular/material';
-
 import { AppComponent } from './app.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './film.service';
 import { FilmListComponent } from './film-list/film-list.component';
 import { FilmSearchComponent } from './film-search/film-search.component';
 import { FilmViewComponent } from './film-view/film-view.component';
+import {MdAutocompleteModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,8 @@ import { FilmViewComponent } from './film-view/film-view.component';
     MaterialModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    MdAutocompleteModule,
     HttpModule
   ],
   providers: [FilmService],

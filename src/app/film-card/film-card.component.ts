@@ -21,7 +21,8 @@ ngOnChanges(){
     if(!this.filmId) {return;}
     this.filmCardService.getFilmById(this.filmId).subscribe(data => {
       this.filmItem = data;
-      console.log(data);
+      //console.log(data);
+        console.log("data received");
     })
   }
 
