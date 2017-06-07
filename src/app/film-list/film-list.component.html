@@ -1,0 +1,18 @@
+<film-search (filmsChange)="filmsChange($event)"></film-search>
+<film-view (onSelected)="onSelected($event)"></film-view>
+
+<md-grid-list  cols="2" rowHeight="1000px">
+	
+  <md-grid-tile *ngFor="let film of filmList">
+		<film-card [filmId]="film.imdbID" [view]="selection"></film-card>
+	</md-grid-tile>
+	
+</md-grid-list>
+
+<div >
+	<a md-fab (click)="getNextPage()" class="mybtn" *ngIf="!isLoading" routerLink="."><md-icon>arrow_downward</md-icon></a>
+	<a md-fab (click)="goTop()" class="onTop" *ngIf="!isLoading" routerLink="."><md-icon>arrow_upward</md-icon></a>
+</div>
+<div class="loading">
+	<img *ngIf="isLoading" src="http://dataserve.in.ua/public/126.gif"/>
+</div>
