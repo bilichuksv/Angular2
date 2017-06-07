@@ -27,8 +27,8 @@ export class FilmSearchComponent {
 focusInput : ElementRef;
 
 setFocus() {
-this.focusInput.nativeElement.focus();
-this.focusInput.nativeElement.blur();
+  this.focusInput.nativeElement.focus();
+  this.focusInput.nativeElement.blur();
 }
 
   states = [
