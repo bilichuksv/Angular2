@@ -1,0 +1,22 @@
+<form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+    <div class="form-group">
+        <label>Логин(email)</label>
+        <input class="form-control" name="email" ngModel 
+            required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+        <div [hidden]="myForm.controls.email.valid || myForm.controls.email.untouched" class="alert alert-danger">
+          Некорректный email
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" class="form-control" name="password" ngModel 
+            required pattern="(?=.*\d)(?=.*[A-Z]).{10,}" />
+        <div [hidden]="myForm.controls.password.valid || myForm.controls.password.untouched" class="alert alert-danger">
+          Пароль должен содержать не менее 10 символов, не менее 1 числа, не менее 1 буквы в верхнем регистре
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" [disabled]="myForm.invalid" [routerLink]="'/payment-form'" class="btn btn-default" value="Подтвердить" />
+    </div>
+</form>
+
