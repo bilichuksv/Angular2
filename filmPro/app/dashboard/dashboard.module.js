@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var dashboard_routes_1 = require('./dashboard.routes');
+var film_service_1 = require('../film.service');
 var DashboardModule = (function () {
     function DashboardModule() {
     }
@@ -19,7 +20,8 @@ var DashboardModule = (function () {
             imports: [
                 router_1.RouterModule.forChild(dashboard_routes_1.MODULE_ROUTES)
             ],
-            declarations: [dashboard_routes_1.MODULE_COMPONENTS]
+            declarations: [dashboard_routes_1.MODULE_COMPONENTS],
+            providers: [film_service_1.FilmService]
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardModule);

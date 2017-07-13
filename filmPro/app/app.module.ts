@@ -12,6 +12,7 @@ import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {FilmService} from './services/film.service';
 
 @NgModule({
     imports:      [
@@ -23,7 +24,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         RouterModule.forRoot([])
     ],
     declarations: [ AppComponent, DashboardComponent ],
-    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+    providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, FilmService],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -18,6 +18,7 @@ var sidebar_module_1 = require('./sidebar/sidebar.module');
 var footer_module_1 = require('./shared/footer/footer.module');
 var navbar_module_1 = require('./shared/navbar/navbar.module');
 var common_1 = require('@angular/common');
+var film_service_1 = require('./services/film.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +33,7 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot([])
             ],
             declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
-            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
+            providers: [{ provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }, film_service_1.FilmService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
