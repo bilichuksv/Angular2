@@ -1,0 +1,67 @@
+ 
+  
+<form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm.value)" *ngIf="!paymentOk">
+ 
+   <div class="form-group">
+        <label>Номер мобильного телефона</label>
+        <input  id="tell" name="tel" class="form-control" [(ngModel)]="tel" 
+            required  pattern="[0-9]{10}" />
+        <div [hidden]="myForm.controls.tel.valid || myForm.controls.tel.untouched" class="alert alert-danger">
+          Введите корректный номер телефона (10 цифр)
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Сумма пополнения</label>
+        <input type="sum" id="sum" name="sum" placeholder="5-5000" class="form-control" [(ngModel)]="sum"
+            required  pattern="[0-9]{1,}"/>
+        <div [hidden]="myForm.controls.sum.valid || myForm.controls.sum.untouched" class="alert alert-danger">
+          Введите сумму пополнения в диапазоне 5-5000грн
+        </div>
+    </div>
+    <div class="form-group">
+        <label>email</label>
+        <input class="form-control" name="email" [(ngModel)]="email" 
+            required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+        <div [hidden]="myForm.controls.email.valid || myForm.controls.email.untouched" class="alert alert-danger">
+          Некорректный email
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Номер платежной карты</label>
+        <input class="form-control" name="card" id="cardd" [(ngModel)]="card" 
+            required  pattern="[0-9]{16}"/>
+        <div [hidden]="myForm.controls.card.valid || myForm.controls.card.untouched" class="alert alert-danger">
+          Введите корректный номер карты (16 цифр)
+        </div>
+    </div>
+    <div class="form-group exp-date">
+      <div class="expdate-label">
+          <label for="expiration_month">Срок действия карты</label>
+      </div>
+        <div class="expiration-wrap col-sm-3">
+          <label for="expiration_month">ММ</label>
+          <select name="expiration_month" id="exp_date-MM" class="selectbox" data-rule-validthru="true">
+            <option *ngFor="let month of months" value="month">{{month}}</option>
+          </select>
+        </div>
+        <div class="expiration-wrap col-sm-3">
+          <label for="expiration_year">ГГ</label>
+          <select name="expiration_year" id="expiration_date-YY" class="selectbox" data-rule-validthru="true">
+            <option *ngFor="let year of years" value="year">{{year}}</option>
+          </select>
+        </div>
+        <div class="cvv2-wrap col-sm-6">
+          <label for="cvv2">CVV2</label>
+          <input class="form-control" name="cvv2" id="cvv22" [(ngModel)]="cvv2" 
+              required pattern="[0-9]{3}" />
+        </div>
+        <div [hidden]="myForm.controls.cvv2.valid || myForm.controls.cvv2.untouched" class="alert alert-danger">
+            Не корректный CVV2 код (три цифры, которые на карте с обратной стороны от номера)
+          </div>
+    </div>
+    
+    <div class="form-group ">
+        <input type="submit" [disabled]="myForm.invalid" class="btn btn-default mybtn" value="Оплатить" />
+    </div>
+</form>
+<div *ngIf="paymentOk"><h1>Платеж выполнен успешно!</h1></div>

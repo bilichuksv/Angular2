@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>Amazing Film Catalog</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href="https://unpkg.com/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://gnatkovsky.com.ua/files/download/maskinput.js"></script>
+  <script type="text/javascript">
+    jQuery(function($){
+    $("#tel").mask("+38(999) 999-9999");
+    $("#card").mask("9999 9999 9999 9999");
+    $("#cvv2").mask("999");
+    });
+  </script>
+
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>
